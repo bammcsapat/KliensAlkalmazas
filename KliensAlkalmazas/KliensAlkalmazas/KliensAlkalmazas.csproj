@@ -33,8 +33,47 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Hotcakes.Commerce">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Commerce.dll</HintPath>
+    </Reference>
+    <Reference Include="Hotcakes.Commerce.Dnn">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Commerce.Dnn.dll</HintPath>
+    </Reference>
+    <Reference Include="Hotcakes.CommerceDTO">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.CommerceDTO.dll</HintPath>
+    </Reference>
+    <Reference Include="Hotcakes.Modules">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Modules.dll</HintPath>
+    </Reference>
+    <Reference Include="Hotcakes.Payment">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Payment.dll</HintPath>
+    </Reference>
+    <Reference Include="Hotcakes.Web">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor">
+      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +91,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -66,6 +106,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
