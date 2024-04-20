@@ -34,14 +34,10 @@ namespace KliensAlkalmazas
 
             var s = proxy.ProductsFindAll();
 
-            //MessageBox.Show(s.GetType().ToString());
-
-            //listBox1.DataSource = s.Content.ToList();
 
             
             for (int i = 1; i <= 100; i++)
             {
-                //bindingList.Add(s.Content[i].ProductName);
 
                 Product product = new Product
                 {
@@ -54,49 +50,8 @@ namespace KliensAlkalmazas
 
             listBox1.DataSource = bindingList;
             listBox1.DisplayMember = "Name";
-            //listBox1.SelectedIndex = -1;
-
-            //string url = "http://20.234.113.211:8088";
-            //string key = "1-4ce1a804-7cba-4a55-9a83-3ef3104c2908";
-
-            //Api proxy = new Api(url, key);
-
-            //// find all categories in the store
-            //ApiResponse<List<ProductDTO>> response = proxy.ProductsFindAll();
 
         }
-
-        //private async void button1_Click(object sender, EventArgs e)
-        //{
-        //    var apiUrl = "http://20.234.113.211:8088/DesktopModules/Hotcakes/API/rest/v1/products";
-        //    try
-        //    {
-        //        var products = await GetProductsAsync(apiUrl);
-
-        //        // Clear the existing items
-        //        listBox1.Items.Clear();
-
-        //        // Populate the ListBox with product names
-        //        foreach (var product in products)
-        //        {
-        //            listBox1.Items.Add(product.Name);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error fetching products: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-        //private async Task<List<Product>> GetProductsAsync(string apiUrl)
-        //{
-        //    using (var httpClient = new HttpClient())
-        //    {
-        //        var response = await httpClient.GetStringAsync(apiUrl);
-        //        var products = JsonConvert.DeserializeObject<List<Product>>(response);
-        //        return products;
-        //    }
-        //}
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -115,16 +70,12 @@ namespace KliensAlkalmazas
 
             var proxy = new Api(url, key);
             ApiResponse<ProductInventoryDTO> response = proxy.ProductInventoryFind(inventoryId);
-            //var ProductInventoryDTO = proxy.ProductInventoryFind(inventoryId);
-            //var s = proxy.ProductInventoryFind().Content.QuantityOnHand;
+            //var response = proxy.ProductInventoryFind(inventoryId); //így sem jó
 
 
-            //if (ProductInventoryDTO.Content.QuantityOnHand == null)
-            //{
-            //    ProductInventoryDTO.Content.QuantityOnHand = 0;
-            //}
-            textBox2.Text = response.Content.QuantityOnHand.ToString();
-            //var i = ProductInventoryDTO.Content.QuantityReserved;
+
+            textBox2.Text = response.Content.QuantityOnHand.ToString(); //
+
         }
 
         private void button2_Click(object sender, EventArgs e)
