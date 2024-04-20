@@ -57,7 +57,7 @@ namespace KliensAlkalmazas
         {
             var selected = listBox1.SelectedIndex;
             var inventoryId = bindingList[selected].bvin;
-            MessageBox.Show(inventoryId);
+            MessageBox.Show(inventoryId); //teszt hogy látszódjon hogy jó bvin-t ad vissza
 
             var url = string.Empty;
             var key = string.Empty;
@@ -74,7 +74,7 @@ namespace KliensAlkalmazas
 
 
 
-            textBox2.Text = response.Content.QuantityOnHand.ToString(); //
+            textBox2.Text = response.Content.QuantityOnHand.ToString(); //emiatt nem fut le, üres objectet ad vissza az api hívás valamiért. ha ezt kikommenteljük lefut, de ugyanúgy üres lesz a response object
 
         }
 
