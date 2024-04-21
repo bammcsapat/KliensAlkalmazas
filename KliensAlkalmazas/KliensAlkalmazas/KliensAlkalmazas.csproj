@@ -34,22 +34,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Hotcakes.Commerce">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Commerce.dll</HintPath>
+      <HintPath>References\Hotcakes.Commerce.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Commerce.Dnn">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Commerce.Dnn.dll</HintPath>
+      <HintPath>References\Hotcakes.Commerce.Dnn.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.CommerceDTO">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.CommerceDTO.dll</HintPath>
+      <HintPath>References\Hotcakes.CommerceDTO.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Modules">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Modules.dll</HintPath>
+      <HintPath>References\Hotcakes.Modules.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Payment">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Payment.dll</HintPath>
+      <HintPath>References\Hotcakes.Payment.dll</HintPath>
     </Reference>
     <Reference Include="Hotcakes.Web">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\Hotcakes.Web.dll</HintPath>
+      <HintPath>References\Hotcakes.Web.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -57,22 +57,22 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Helpers">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.Helpers.dll</HintPath>
+      <HintPath>References\System.Web.Helpers.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.Mvc.dll</HintPath>
+      <HintPath>References\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.Razor.dll</HintPath>
+      <HintPath>References\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.WebPages.dll</HintPath>
+      <HintPath>References\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Deployment">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.WebPages.Deployment.dll</HintPath>
+      <HintPath>References\System.Web.WebPages.Deployment.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages.Razor">
-      <HintPath>..\..\..\Hotcakes Sample\DevSamples\References\System.Web.WebPages.Razor.dll</HintPath>
+      <HintPath>References\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
