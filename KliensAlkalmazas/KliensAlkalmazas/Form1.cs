@@ -13,6 +13,7 @@ using Hotcakes.CommerceDTO.v1;
 using Hotcakes.CommerceDTO.v1.Catalog;
 using Newtonsoft.Json;
 using System.Net;
+using System.Runtime.Remoting.Contexts;
 
 namespace KliensAlkalmazas
 {
@@ -122,6 +123,21 @@ namespace KliensAlkalmazas
             {
                 MessageBox.Show("Nem sikerült a módosítás!");
             }
+        }
+
+        void TermekFilter()
+        {
+            var termek = from x in bindingList
+                         where x.Name.ToLower().Contains(textBoxFilter.Text)
+                         select x;
+
+            listBox1.DataSource = termek.ToList();
+            listBox1.DisplayMember = "Name";
+        }
+
+        private void textBoxFilter_TextChanged(object sender, EventArgs e)
+        {
+            TermekFilter();
         }
     }
 }

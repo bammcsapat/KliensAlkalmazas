@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxFilter = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBoxKeszlet = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,12 +51,13 @@
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxFilter
             // 
-            this.textBox1.Location = new System.Drawing.Point(55, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBoxFilter.Location = new System.Drawing.Point(55, 39);
+            this.textBoxFilter.Name = "textBoxFilter";
+            this.textBoxFilter.Size = new System.Drawing.Size(222, 20);
+            this.textBoxFilter.TabIndex = 0;
+            this.textBoxFilter.TextChanged += new System.EventHandler(this.textBoxFilter_TextChanged);
             // 
             // listBox1
             // 
@@ -114,7 +115,7 @@
             // 
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.listBox1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBoxFilter);
             this.panel2.Location = new System.Drawing.Point(199, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(331, 454);
@@ -235,7 +236,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxFilter;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBoxKeszlet;
         private System.Windows.Forms.Label label1;
