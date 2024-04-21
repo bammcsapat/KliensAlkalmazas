@@ -10,6 +10,8 @@ namespace KliensAlkalmazas
     {
         public string Sku { get; set; }
         public string Name { get; set; }
+        public string Desc { get; set; }
+        public decimal Price { get; set; }
         public int Stock {  get; set; }
         public string bvin { get; set; }
     }

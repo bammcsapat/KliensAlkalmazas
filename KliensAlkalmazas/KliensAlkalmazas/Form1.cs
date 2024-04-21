@@ -12,6 +12,7 @@ using Hotcakes.CommerceDTO.v1.Client;
 using Hotcakes.CommerceDTO.v1;
 using Hotcakes.CommerceDTO.v1.Catalog;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace KliensAlkalmazas
 {
@@ -36,13 +37,15 @@ namespace KliensAlkalmazas
 
 
             
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= 110; i++)
             {
 
                 Product product = new Product
                 {
                     Sku = s.Content[i].Sku,
                     Name = s.Content[i].ProductName,
+                    Desc = s.Content[i].LongDescription,
+                    Price = s.Content[i].SitePrice,
                     bvin = s.Content[i].Bvin
                 };
                 bindingList.Add(product);
@@ -57,7 +60,7 @@ namespace KliensAlkalmazas
         {
             var selected = listBox1.SelectedIndex;
             var inventoryId = bindingList[selected].bvin;
-            MessageBox.Show(inventoryId); //teszt hogy látszódjon hogy jó bvin-t ad vissza
+            //MessageBox.Show(inventoryId); //teszt hogy látszódjon hogy jó bvin-t ad vissza
 
             var url = string.Empty;
             var key = string.Empty;
@@ -74,9 +77,16 @@ namespace KliensAlkalmazas
 
 
 
-            textBox2.Text = response.Content.QuantityOnHand.ToString(); //emiatt nem fut le, üres objectet ad vissza az api hívás valamiért. ha ezt kikommenteljük lefut, de ugyanúgy üres lesz a response object
+            //textBoxKeszlet.Text = response.Content.QuantityOnHand.ToString(); //emiatt nem fut le, üres objectet ad vissza az api
+                                                                              //hívás valamiért. ha ezt kikommenteljük lefut, de ugyanúgy üres lesz a response object
 
+            textBoxTermeknev.Text = bindingList[selected].Name;
+            textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
+            var segedAr = (int)bindingList[selected].Price;
+            textBoxAr.Text = segedAr.ToString();
         }
+
+        //innentől lefele még nem tudtam tesztelni, hogy működik-e amíg nem jó a fenti event.
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -93,13 +103,25 @@ namespace KliensAlkalmazas
 
             var proxy = new Api(url, key);
 
-            var inventory = proxy.ProductInventoryFind(inventoryId).Content;
+            //var inventory = proxy.ProductInventoryFind(inventoryId).Content;
+            var product = proxy.ProductsFind(inventoryId).Content;
 
-            // update one or more inventory properties
-            inventory.QuantityReserved = int.Parse(textBox2.Text);
+            product.ProductName = textBoxTermeknev.Text;
+            product.LongDescription = textBoxLeiras.Text;
+            product.SitePrice = decimal.Parse(textBoxAr.Text);
+            //inventory.QuantityOnHand = int.Parse(textBoxKeszlet.Text);
 
-            // call the API to create the new product inventory record
-            ApiResponse<ProductInventoryDTO> response = proxy.ProductInventoryUpdate(inventory);
+            //ApiResponse<ProductInventoryDTO> response = proxy.ProductInventoryUpdate(inventory);
+            ApiResponse<ProductDTO> response2 = proxy.ProductsUpdate(product);
+
+            if (response2.Errors.Count == 0)
+            {
+                MessageBox.Show("Sikeres módosítás!");
+            }
+            else
+            {
+                MessageBox.Show("Nem sikerült a módosítás!");
+            }
         }
     }
 }
