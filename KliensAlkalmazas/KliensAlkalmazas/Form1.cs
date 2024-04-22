@@ -26,6 +26,20 @@ namespace KliensAlkalmazas
         public Form1()
         {
             InitializeComponent();
+            Listazas();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Navigalas();
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Mentes();
+        }
+
+        private void Listazas()
+        {
 
             var url = string.Empty;
             var key = string.Empty;
@@ -40,7 +54,7 @@ namespace KliensAlkalmazas
             var s = proxy.ProductsFindAll();
 
 
-            
+
             for (int i = 1; i <= 110; i++)
             {
 
@@ -57,10 +71,11 @@ namespace KliensAlkalmazas
 
             listBox1.DataSource = bindingList;
             listBox1.DisplayMember = "Name";
-
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        
+
+        private void Navigalas()
         {
             var selected = listBox1.SelectedIndex;
             var inventoryId = bindingList[selected].bvin;
@@ -82,7 +97,7 @@ namespace KliensAlkalmazas
 
 
             //textBoxKeszlet.Text = response.Content.QuantityOnHand.ToString(); //emiatt nem fut le, üres objectet ad vissza az api
-                                                                              //hívás valamiért. ha ezt kikommenteljük lefut, de ugyanúgy üres lesz a response object
+            //hívás valamiért. ha ezt kikommenteljük lefut, de ugyanúgy üres lesz a response object
 
             textBoxTermeknev.Text = bindingList[selected].Name;
             textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
@@ -90,9 +105,7 @@ namespace KliensAlkalmazas
             textBoxAr.Text = segedAr.ToString();
         }
 
-        //innentől lefele még nem tudtam tesztelni, hogy működik-e amíg nem jó a fenti event.
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Mentes()
         {
             var selected = listBox1.SelectedIndex;
             var inventoryId = bindingList[selected].bvin;
