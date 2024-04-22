@@ -3,6 +3,8 @@ using Hotcakes.CommerceDTO.v1;
 using System;
 using System.Text.RegularExpressions;
 using Hotcakes.CommerceDTO.v1.Client;
+using System.Windows.Forms;
+
 
 
 namespace KliensAlkalmazas.Controllers
@@ -14,15 +16,24 @@ namespace KliensAlkalmazas.Controllers
         {
             try
             {
-                if (!ValidateDesc(Desc))
-                    throw new ArgumentException("Érvénytelen leírás");
+                if (!ValidateDesc(Desc)) 
+                {
+                    MessageBox.Show("Érvénytelen leírás: Nagybetűvel kezdődő, ponttal végződő, legalább 50 karakteres leírást adj meg!");
+                    return false;
+                }
 
-                if (!ValidatePrice((Price.ToString())))
-                    throw new ArgumentException("Érvénytelen ár");
+
+                if (!ValidatePrice(Price.ToString())) 
+                {
+                    MessageBox.Show("Érvénytelen ár. Ne adj meg negatív, nullával kezdődő vagy nem egész értékeket");
+                    return false;
+                }
+                    
             }
-            catch (Exception)
+            catch (Exception err)
             {
-                throw;
+                MessageBox.Show($"Nem sikerült a módosítás: {err.Message}");
+                //throw;
             }
 
             var url = string.Empty;
