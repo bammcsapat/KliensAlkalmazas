@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Runtime.Remoting.Contexts;
 using KliensAlkalmazas.Controllers;
+using Hotcakes.Commerce.Catalog;
 
 namespace KliensAlkalmazas
 {
@@ -96,28 +97,15 @@ namespace KliensAlkalmazas
             var selected = listBox1.SelectedIndex;
             var inventoryId = bindingList[selected].bvin;
 
-            var url = string.Empty;
-            var key = string.Empty;
+            var controller = new ProductController();
 
-            if (url == string.Empty) url = "http://20.234.113.211:8088";
-            if (key == string.Empty) key = "1-4ce1a804-7cba-4a55-9a83-3ef3104c2908";
+            var name = textBoxTermeknev.Text;
+            var desc = textBoxLeiras.Text;
+            var price = decimal.Parse(textBoxAr.Text);
 
+            var modifyResponse = controller.ModifyProduct(name, desc, price, inventoryId);
 
-
-            var proxy = new Api(url, key);
-
-            //var inventory = proxy.ProductInventoryFind(inventoryId).Content;
-            var product = proxy.ProductsFind(inventoryId).Content;
-
-            product.ProductName = textBoxTermeknev.Text;
-            product.LongDescription = textBoxLeiras.Text;
-            product.SitePrice = decimal.Parse(textBoxAr.Text);
-            //inventory.QuantityOnHand = int.Parse(textBoxKeszlet.Text);
-
-            //ApiResponse<ProductInventoryDTO> response = proxy.ProductInventoryUpdate(inventory);
-            ApiResponse<ProductDTO> response2 = proxy.ProductsUpdate(product);
-
-            if (response2.Errors.Count == 0)
+            if (modifyResponse)
             {
                 MessageBox.Show("Sikeres módosítás!");
             }
@@ -125,7 +113,9 @@ namespace KliensAlkalmazas
             {
                 MessageBox.Show("Nem sikerült a módosítás!");
             }
+            
         }
+
 
         void TermekFilter()
         {

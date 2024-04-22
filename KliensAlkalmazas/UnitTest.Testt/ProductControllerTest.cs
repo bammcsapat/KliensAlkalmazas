@@ -13,24 +13,22 @@ namespace UnitTest.Testt
 {
     public class ProductControllerTest
     {
-        /*Product product1 = new Product();
-        Product product2 = new Product();
 
         [Test,
-         TestCase(product1, 1000), 
-         TestCase(product2, 2000)
+         TestCase("Celestial Sparkle Fülbevaló", "Minimalista tervezésű, 18 karátos arany fülbevalók, amelyek egyetlen gyémánttal vannak díszítve, hangsúlyozva a kövek természetes szépségét. Ezek az ékszerek a visszafogott elegancia megtestesítői.", 150000, "0801a19e-a910-4c5a-b948-0f5adf744b8d"), 
+         TestCase("Arca Aura Gyűrű", "Visszafogott 18 karátos sárgaarany karikagyűrű, középpontjában gyémánttal, melyet 4 kisebb gyémánt fog közre.", 350000, "e8785bb1-3a19-4543-9d40-46bdcce5ac34")
          ]
-        public void TestModifyPrice(Product product, decimal newPrice)
+        public void TestModifyProduct(string Name, string Desc, decimal Price, string inventoryId)
         {
             //Arrange
             var productcontroller = new ProductController();
 
             // Act
-            var actualProduct = productcontroller.ModifyPrice(product, newPrice);
+            var actualResponse = productcontroller.ModifyProduct(Name, Desc, Price, inventoryId);
 
             // Assert
-            ClassicAssert.AreEqual(newPrice, actualProduct.Price);
-        }*/
+            ClassicAssert.True(actualResponse);
+        }
 
         [Test,
         TestCase("15000,0", false),
