@@ -16,6 +16,7 @@ using System.Net;
 using System.Runtime.Remoting.Contexts;
 using KliensAlkalmazas.Controllers;
 using Hotcakes.Commerce.Catalog;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KliensAlkalmazas
 {
@@ -27,6 +28,14 @@ namespace KliensAlkalmazas
         {
             InitializeComponent();
             Listazas();
+            textBoxFilter.GotFocus += (sender, e) =>
+            {
+                if (textBoxFilter.Text == "Keresés...")
+                {
+                    textBoxFilter.Text = "";
+                    textBoxFilter.ForeColor = System.Drawing.Color.Black; // Set text color to black
+                }
+            };
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
