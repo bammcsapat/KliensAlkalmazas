@@ -16,7 +16,8 @@ namespace KliensAlkalmazas.Controllers
 
             try
             {
-                if (!ValidatePrice(Price.ToString()));
+                if (!ValidatePrice(Price.ToString()))
+                    throw new ArgumentException("Érvénytelen ár");
             }
             catch (Exception)
             {
@@ -34,7 +35,8 @@ namespace KliensAlkalmazas.Controllers
 
             try
             {
-                if (!ValidatePrice(Desc.ToString()));
+                if (!ValidateDesc(Desc.ToString()))
+                    throw new ArgumentException("Érvénytelen leírás");
             }
             catch (Exception)
             {

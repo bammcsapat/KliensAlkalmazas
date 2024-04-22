@@ -14,11 +14,13 @@ using Hotcakes.CommerceDTO.v1.Catalog;
 using Newtonsoft.Json;
 using System.Net;
 using System.Runtime.Remoting.Contexts;
+using KliensAlkalmazas.Controllers;
 
 namespace KliensAlkalmazas
 {
     public partial class Form1 : Form
     {
+        private ProductController productController = new ProductController();
         BindingList<Product> bindingList = new BindingList<Product>();
         public Form1()
         {
