@@ -101,6 +101,8 @@ namespace KliensAlkalmazas
 
             var proxy = new Api(url, key);
             ApiResponse<ProductInventoryDTO> response = proxy.ProductInventoryFind(inventoryId);
+            var prodinv = proxy.ProductInventoryFindForProduct(inventoryId);
+            textBox1.Text = prodinv.Content[0].QuantityOnHand.ToString();
             //var response = proxy.ProductInventoryFind(inventoryId); //így sem jó
 
 
@@ -130,12 +132,12 @@ namespace KliensAlkalmazas
             if (modifyResponse)
             {
                 MessageBox.Show("Sikeres módosítás!");
-                //lokalis adatbazis valtozasa
+                //lokalis adatbazis valtozása új értékekre
                 bindingList[selected].Name = textBoxTermeknev.Text;
                 bindingList[selected].Desc = textBoxLeiras.Text;
                 bindingList[selected].Price = decimal.Parse(textBoxAr.Text);
 
-                //textboxok frissítése
+                //textboxok frissítése új értékekre
                 textBoxTermeknev.Text = bindingList[selected].Name;
                 textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
                 var segedAr = (int)bindingList[selected].Price;
@@ -144,6 +146,7 @@ namespace KliensAlkalmazas
             else
             {
                 MessageBox.Show("Nem sikerült a módosítás!");
+                //textbox visszaállítása eredeti értékekre
                 textBoxTermeknev.Text = bindingList[selected].Name;
                 textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
                 var segedAr = (int)bindingList[selected].Price;

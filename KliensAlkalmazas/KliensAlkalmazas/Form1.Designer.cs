@@ -45,6 +45,9 @@
             this.textBoxLeiras = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxTermeknev = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -147,6 +150,9 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.textBoxAr);
@@ -165,7 +171,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Window;
-            this.label6.Location = new System.Drawing.Point(223, 305);
+            this.label6.Location = new System.Drawing.Point(220, 288);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(23, 17);
             this.label6.TabIndex = 13;
@@ -175,7 +181,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 282);
+            this.label5.Location = new System.Drawing.Point(23, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 17);
             this.label5.TabIndex = 12;
@@ -184,7 +190,7 @@
             // textBoxAr
             // 
             this.textBoxAr.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAr.Location = new System.Drawing.Point(26, 302);
+            this.textBoxAr.Location = new System.Drawing.Point(26, 285);
             this.textBoxAr.Name = "textBoxAr";
             this.textBoxAr.Size = new System.Drawing.Size(232, 24);
             this.textBoxAr.TabIndex = 11;
@@ -193,7 +199,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(26, 73);
+            this.label3.Location = new System.Drawing.Point(26, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 17);
             this.label3.TabIndex = 9;
@@ -202,7 +208,7 @@
             // textBoxLeiras
             // 
             this.textBoxLeiras.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxLeiras.Location = new System.Drawing.Point(26, 93);
+            this.textBoxLeiras.Location = new System.Drawing.Point(26, 86);
             this.textBoxLeiras.Name = "textBoxLeiras";
             this.textBoxLeiras.Size = new System.Drawing.Size(232, 176);
             this.textBoxLeiras.TabIndex = 8;
@@ -225,6 +231,33 @@
             this.textBoxTermeknev.Name = "textBoxTermeknev";
             this.textBoxTermeknev.Size = new System.Drawing.Size(232, 24);
             this.textBoxTermeknev.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(26, 340);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(232, 24);
+            this.textBox1.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 320);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 17);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Készlet";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Window;
+            this.label4.Location = new System.Drawing.Point(220, 343);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(28, 17);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "db";
             // 
             // Form1
             // 
@@ -268,6 +301,9 @@
         private System.Windows.Forms.TextBox textBoxTermeknev;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
     }
 }
 
