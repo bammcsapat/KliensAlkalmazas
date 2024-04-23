@@ -28,7 +28,13 @@ namespace KliensAlkalmazas.Controllers
                     MessageBox.Show("Érvénytelen ár. Ne adj meg negatív, nullával kezdődő vagy nem egész értékeket");
                     return false;
                 }
-                    
+
+                if (!ValidateStock(Stock.ToString()))
+                {
+                    MessageBox.Show("Érvénytelen készletérték. Ne adj meg negatív, nullával kezdődő vagy nem egész értékeket");
+                    return false;
+                }
+
             }
             catch (Exception err)
             {
@@ -75,5 +81,13 @@ namespace KliensAlkalmazas.Controllers
             Regex regex = new Regex(@"^[A-Z].{48,}\.$");
             return regex.IsMatch(Desc);
         }
+
+        public bool ValidateStock(string Stock)
+        {
+            Regex regex = new Regex(@"^(?!0\d)\d+$");
+            return regex.IsMatch(Stock);
+
+        }
+
     }
 }

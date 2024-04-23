@@ -74,5 +74,27 @@ namespace UnitTest.Testt
             ClassicAssert.AreEqual(expectedResult, actualResult);
 
         }
+
+        [Test,
+        TestCase("5,5", false),
+        TestCase("-10", false),
+        TestCase("03", false),
+        TestCase("7", true)
+        ]
+
+
+        public void TestValidateStock(string Stock, bool expectedResult)
+        {
+            //Arrange
+            var productcontroller = new ProductController();
+
+            // Act
+            var actualResult = productcontroller.ValidateStock(Stock);
+
+            //Assert
+            ClassicAssert.AreEqual(expectedResult, actualResult);
+
+        }
+
     }
 }
