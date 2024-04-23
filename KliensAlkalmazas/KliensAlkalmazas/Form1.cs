@@ -130,22 +130,27 @@ namespace KliensAlkalmazas
             if (modifyResponse)
             {
                 MessageBox.Show("Sikeres módosítás!");
+                //lokalis adatbazis valtozasa
+                bindingList[selected].Name = textBoxTermeknev.Text;
+                bindingList[selected].Desc = textBoxLeiras.Text;
+                bindingList[selected].Price = decimal.Parse(textBoxAr.Text);
+
+                //textboxok frissítése
+                textBoxTermeknev.Text = bindingList[selected].Name;
+                textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
+                var segedAr = (int)bindingList[selected].Price;
+                textBoxAr.Text = segedAr.ToString();
             }
             else
             {
                 MessageBox.Show("Nem sikerült a módosítás!");
+                textBoxTermeknev.Text = bindingList[selected].Name;
+                textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
+                var segedAr = (int)bindingList[selected].Price;
+                textBoxAr.Text = segedAr.ToString();
             }
 
-            //lokalis adatbazis valtozasa
-            bindingList[selected].Name = textBoxTermeknev.Text;
-            bindingList[selected].Desc = textBoxLeiras.Text;
-            bindingList[selected].Price = decimal.Parse(textBoxAr.Text);
 
-            //textboxok frissítése
-            textBoxTermeknev.Text = bindingList[selected].Name;
-            textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
-            var segedAr = (int)bindingList[selected].Price;
-            textBoxAr.Text = segedAr.ToString();
 
         }
 
