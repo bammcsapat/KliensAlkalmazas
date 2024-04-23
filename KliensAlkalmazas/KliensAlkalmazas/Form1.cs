@@ -63,7 +63,6 @@ namespace KliensAlkalmazas
             var s = proxy.ProductsFindAll();
 
 
-
             for (int i = 1; i <= 110; i++)
             {
 
@@ -75,8 +74,11 @@ namespace KliensAlkalmazas
                     Price = s.Content[i].SitePrice,
                     bvin = s.Content[i].Bvin
                 };
+                var prodinv = proxy.ProductInventoryFindForProduct(product.bvin);
+                product.Stock = prodinv.Content[0].QuantityOnHand;
                 bindingList.Add(product);
             }
+
 
             listBox1.DataSource = bindingList;
             listBox1.DisplayMember = "Name";
@@ -88,7 +90,6 @@ namespace KliensAlkalmazas
         {
             var selected = listBox1.SelectedIndex;
             var inventoryId = bindingList[selected].bvin;
-            //MessageBox.Show(inventoryId); //teszt hogy látszódjon hogy jó bvin-t ad vissza
 
             var url = string.Empty;
             var key = string.Empty;
@@ -100,20 +101,16 @@ namespace KliensAlkalmazas
 
 
             var proxy = new Api(url, key);
+
             ApiResponse<ProductInventoryDTO> response = proxy.ProductInventoryFind(inventoryId);
             var prodinv = proxy.ProductInventoryFindForProduct(inventoryId);
-            textBox1.Text = prodinv.Content[0].QuantityOnHand.ToString();
-            //var response = proxy.ProductInventoryFind(inventoryId); //így sem jó
 
-
-
-            //textBoxKeszlet.Text = response.Content.QuantityOnHand.ToString(); //emiatt nem fut le, üres objectet ad vissza az api
-            //hívás valamiért. ha ezt kikommenteljük lefut, de ugyanúgy üres lesz a response object
 
             textBoxTermeknev.Text = bindingList[selected].Name;
             textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
             var segedAr = (int)bindingList[selected].Price;
             textBoxAr.Text = segedAr.ToString();
+            textBoxDb.Text = bindingList[selected].Stock.ToString();
         }
 
         private void Mentes()
@@ -123,11 +120,13 @@ namespace KliensAlkalmazas
 
             var controller = new ProductController();
 
+            
             var name = textBoxTermeknev.Text;
             var desc = textBoxLeiras.Text;
             var price = decimal.Parse(textBoxAr.Text);
+            var stock = int.Parse(textBoxDb.Text);
 
-            var modifyResponse = controller.ModifyProduct(name, desc, price, inventoryId);
+            var modifyResponse = controller.ModifyProduct(name, desc, price, stock, inventoryId);
 
             if (modifyResponse)
             {
@@ -136,12 +135,14 @@ namespace KliensAlkalmazas
                 bindingList[selected].Name = textBoxTermeknev.Text;
                 bindingList[selected].Desc = textBoxLeiras.Text;
                 bindingList[selected].Price = decimal.Parse(textBoxAr.Text);
+                bindingList[selected].Stock = int.Parse(textBoxDb.Text);
 
                 //textboxok frissítése új értékekre
                 textBoxTermeknev.Text = bindingList[selected].Name;
                 textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
                 var segedAr = (int)bindingList[selected].Price;
                 textBoxAr.Text = segedAr.ToString();
+                textBoxDb.Text = bindingList[selected].Stock.ToString();
             }
             else
             {
@@ -151,6 +152,7 @@ namespace KliensAlkalmazas
                 textBoxLeiras.Text = WebUtility.HtmlDecode(bindingList[selected].Desc).Replace("<p>", "").Replace("</p>", "");
                 var segedAr = (int)bindingList[selected].Price;
                 textBoxAr.Text = segedAr.ToString();
+                textBoxDb.Text = bindingList[selected].Stock.ToString();
             }
 
 

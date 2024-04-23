@@ -15,16 +15,16 @@ namespace UnitTest.Testt
     {
 
         [Test,
-         TestCase("Celestial Sparkle Fülbevaló", "Minimalista tervezésű, 18 karátos arany fülbevalók, amelyek egyetlen gyémánttal vannak díszítve, hangsúlyozva a kövek természetes szépségét. Ezek az ékszerek a visszafogott elegancia megtestesítői.", 150000, "0801a19e-a910-4c5a-b948-0f5adf744b8d"), 
-         TestCase("Arca Aura Gyűrű", "Visszafogott 18 karátos sárgaarany karikagyűrű, középpontjában gyémánttal, melyet 4 kisebb gyémánt fog közre.", 350000, "e8785bb1-3a19-4543-9d40-46bdcce5ac34")
+         TestCase("Celestial Sparkle Fülbevaló", "Minimalista tervezésű, 18 karátos arany fülbevalók, amelyek egyetlen gyémánttal vannak díszítve, hangsúlyozva a kövek természetes szépségét. Ezek az ékszerek a visszafogott elegancia megtestesítői.", 150000, 10, "0801a19e-a910-4c5a-b948-0f5adf744b8d"), 
+         TestCase("Arca Aura Gyűrű", "Visszafogott 18 karátos sárgaarany karikagyűrű, középpontjában gyémánttal, melyet 4 kisebb gyémánt fog közre.", 350000, 10, "e8785bb1-3a19-4543-9d40-46bdcce5ac34")
          ]
-        public void TestModifyProduct(string Name, string Desc, decimal Price, string inventoryId)
+        public void TestModifyProduct(string Name, string Desc, decimal Price, int Stock, string inventoryId)
         {
             //Arrange
             var productcontroller = new ProductController();
 
             // Act
-            var actualResponse = productcontroller.ModifyProduct(Name, Desc, Price, inventoryId);
+            var actualResponse = productcontroller.ModifyProduct(Name, Desc, Price, Stock, inventoryId);
 
             // Assert
             ClassicAssert.True(actualResponse);

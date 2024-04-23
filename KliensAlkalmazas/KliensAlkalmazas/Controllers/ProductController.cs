@@ -12,7 +12,7 @@ namespace KliensAlkalmazas.Controllers
     public class ProductController
     {
        
-        public bool ModifyProduct(string Name, string Desc, decimal Price, string inventoryId) 
+        public bool ModifyProduct(string Name, string Desc, decimal Price, int Stock, string inventoryId) 
         {
             try
             {
@@ -46,18 +46,22 @@ namespace KliensAlkalmazas.Controllers
             var proxy = new Api(url, key);
 
             var product = proxy.ProductsFind(inventoryId).Content;
+            var prodinv = proxy.ProductInventoryFindForProduct(inventoryId).Content;
 
             product.ProductName = Name;
             product.LongDescription = Desc;
             product.SitePrice = Price;
+            prodinv[0].QuantityOnHand = Stock;
+            
 
             ApiResponse<ProductDTO> response = proxy.ProductsUpdate(product);
+            ApiResponse<ProductInventoryDTO> response2 = proxy.ProductInventoryUpdate(prodinv[0]);
 
-            if (response.Errors.Count == 0)
+            if (response.Errors.Count == 0 && response2.Errors.Count == 0)
                 return true;
             else
                 return false;
-                
+
         }
 
         public bool ValidatePrice(string Price)
