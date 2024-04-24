@@ -78,7 +78,7 @@ namespace KliensAlkalmazas.Controllers
 
         public bool ValidateDesc(string Desc)
         {
-            Regex regex = new Regex(@"^[A-Z].{48,}\.$");
+            Regex regex = new Regex(@"^[A-Z0-9].{48,}\.$");
             return regex.IsMatch(Desc);
         }
 
